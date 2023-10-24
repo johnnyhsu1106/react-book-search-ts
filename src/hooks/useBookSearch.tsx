@@ -19,6 +19,10 @@ const useBooksSearch = (query: string, pageNumber: number) => {
   }, [query]);
 
   useEffect(() => {
+    if (query.trim() === '') {
+      return;
+    }
+    
     const controller = new AbortController();
 
     const fetchBooks = async (): Promise<void> => {  
